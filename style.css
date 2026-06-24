@@ -1,0 +1,593 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#ff4d6d;
+    --secondary:#ff758f;
+    --glass:rgba(255,255,255,.12);
+    --border:rgba(255,255,255,.18);
+    --white:#ffffff;
+    --dark:#090909;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+    radial-gradient(circle at top,#2b0014 0%,#130009 35%,#080808 100%);
+    color:white;
+    overflow-x:hidden;
+    overflow: hidden;
+    height:100vh;
+}
+
+/* =========================
+   CURTAIN OPENING
+========================= */
+
+#curtainContainer{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    overflow:hidden;
+}
+
+.curtain{
+    position:absolute;
+    top:0;
+    width:50%;
+    height:100%;
+    transition:2.2s cubic-bezier(.77,0,.18,1);
+    background:
+    linear-gradient(
+    90deg,
+    #3d0000,
+    #7a0000,
+    #a40000,
+    #7a0000,
+    #3d0000
+    );
+}
+
+.curtain::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.05),
+    rgba(255,255,255,.05) 8px,
+    transparent 8px,
+    transparent 18px
+    );
+}
+
+.left-curtain{
+    left:0;
+    box-shadow:30px 0 50px rgba(0,0,0,.5);
+}
+
+.right-curtain{
+    right:0;
+    box-shadow:-30px 0 50px rgba(0,0,0,.5);
+}
+
+.curtain-open .left-curtain{
+    transform:translateX(-100%);
+}
+
+.curtain-open .right-curtain{
+    transform:translateX(100%);
+}
+
+.opening-content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.glass-start-card{
+    width:min(90%,420px);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.35),
+    0 0 50px rgba(255,80,120,.15);
+}
+
+.glass-start-card h1{
+    font-family:'Playfair Display',serif;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.glass-start-card p{
+    opacity:.85;
+    line-height:1.8;
+}
+
+#startBtn{
+    margin-top:25px;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    border-radius:50px;
+
+    padding:14px 32px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff4d6d,
+    #ff758f
+    );
+
+    transition:.35s;
+}
+
+#startBtn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(255,90,130,.4);
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+}
+
+.particle{
+    position:absolute;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.55);
+
+    animation:
+    floatUp linear infinite;
+}
+
+@keyframes floatUp{
+
+    from{
+        transform:
+        translateY(100vh)
+        scale(0);
+    }
+
+    to{
+        transform:
+        translateY(-120px)
+        scale(1);
+    }
+
+}
+
+/* =========================
+   MAIN
+========================= */
+
+#mainContent{
+    position:relative;
+    z-index:5;
+}
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+}
+
+.glass-card{
+
+    width:min(900px,95%);
+
+    text-align:center;
+
+    padding:50px 35px;
+
+    border-radius:30px;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.14);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.35),
+    0 0 60px rgba(255,100,140,.12);
+}
+
+.main-title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:clamp(2.8rem,6vw,5rem);
+
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 20px rgba(255,100,140,.4);
+}
+
+.subtitle{
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.9;
+
+    opacity:.85;
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+.slideshow-section{
+
+    width:100%;
+
+    padding:40px 15px 100px;
+}
+
+.slider-container{
+
+    width:min(1200px,100%);
+
+    margin:auto;
+
+    position:relative;
+}
+
+.slide{
+
+    display:none;
+
+    position:relative;
+
+    overflow:hidden;
+    border-radius:30px;
+
+    min-height:80vh;
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.4);
+}
+
+.slide.active{
+    display:block;
+    animation:fadeSlide .9s ease;
+}
+
+@keyframes fadeSlide{
+
+    from{
+        opacity:0;
+        transform:scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.slide img{
+
+    width:100%;
+    height:80vh;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.slide-overlay{
+
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:flex-end;
+
+    padding:35px;
+
+    background:
+    linear-gradient(
+    transparent,
+    rgba(0,0,0,.75)
+    );
+}
+
+.glass-caption{
+
+    max-width:500px;
+
+    border-radius:24px;
+
+    padding:25px;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.glass-caption h2{
+
+    font-family:'Playfair Display',serif;
+
+    margin-bottom:10px;
+
+    font-size:2rem;
+}
+
+.glass-caption p{
+
+    line-height:1.8;
+
+    opacity:.9;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.slider-controls{
+
+    width:min(1200px,100%);
+
+    margin:25px auto 0;
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+}
+
+.progress-wrapper{
+    flex:1;
+}
+
+.progress-bar{
+
+    width:100%;
+    height:10px;
+
+    overflow:hidden;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,255,255,.15);
+}
+
+#progressFill{
+
+    width:20%;
+    height:100%;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #ff4d6d,
+    #ff9bb0
+    );
+
+    transition:.6s;
+}
+
+#nextBtn{
+
+    border:none;
+
+    cursor:pointer;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff4d6d,
+    #ff758f
+    );
+
+    transition:.35s;
+}
+
+#nextBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(255,80,120,.4);
+}
+
+/* =========================
+   FINAL HEART SECTION
+========================= */
+
+#finalSection{
+
+    position:relative;
+
+    display:none;
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+}
+
+#heartCanvas{
+
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+}
+
+.love-message{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    pointer-events:none;
+
+    z-index:10;
+}
+
+.love-message h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:clamp(3rem,8vw,6rem);
+
+    animation:pulse 1.8s infinite;
+
+    text-shadow:
+    0 0 20px #ff4d6d,
+    0 0 50px #ff4d6d;
+}
+
+.love-message p{
+
+    margin-top:15px;
+
+    font-size:1.2rem;
+
+    letter-spacing:3px;
+
+    opacity:.9;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .glass-start-card h1{
+        font-size:2.3rem;
+    }
+
+    .slide{
+        min-height:70vh;
+    }
+
+    .slide img{
+        height:70vh;
+    }
+
+    .slide-overlay{
+        padding:20px;
+    }
+
+    .glass-caption{
+        padding:18px;
+    }
+
+    .glass-caption h2{
+        font-size:1.5rem;
+    }
+
+    .slider-controls{
+        flex-direction:column;
+    }
+
+    #nextBtn{
+        width:100%;
+    }
+
+    .love-message h1{
+        padding:0 20px;
+    }
+
+}

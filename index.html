@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Alya ❤️</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- MUSIC -->
+    <audio id="bgMusic" loop>
+        <source src="assets/bucin.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- CURTAIN OPENING -->
+    <div id="curtainContainer">
+
+        <div class="curtain left-curtain"></div>
+        <div class="curtain right-curtain"></div>
+
+        <div class="opening-content">
+
+            <div class="glass-start-card">
+
+                <h1>For Alya ❤️</h1>
+
+                <p>
+                    Sebuah cerita kecil yang dibuat dengan penuh rasa.
+                </p>
+
+                <button id="startBtn">
+                    Buka Cerita
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FLOATING PARTICLES -->
+    <div id="particles"></div>
+
+    <!-- MAIN CONTENT -->
+    <main id="mainContent">
+
+        
+
+        <!-- SLIDESHOW -->
+        <section class="slideshow-section">
+
+            <div class="slider-container">
+
+                <!-- Slide 1 -->
+                <div class="slide active">
+
+                    <img src="assets/foto1.jpg" alt="Foto 1">
+
+                    <div class="slide-overlay">
+
+                        <div class="glass-caption">
+                            <h2>Our Story</h2>
+                            <p>
+                                Semua cerita indah selalu dimulai dari sebuah pertemuan.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+
+                    <img src="assets/foto2.jpg" alt="Foto 2">
+
+                    <div class="slide-overlay">
+
+                        <div class="glass-caption">
+                            <h2>Your Smile</h2>
+                            <p>
+                                Senyummu adalah alasan dunia terlihat lebih hangat.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+
+                    <img src="assets/foto3.jpg" alt="Foto 3">
+
+                    <div class="slide-overlay">
+
+                        <div class="glass-caption">
+                            <h2>Beautiful Days</h2>
+                            <p>
+                                Hari-hari sederhana terasa istimewa bersamamu.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide">
+
+                    <img src="assets/foto4.jpg" alt="Foto 4">
+
+                    <div class="slide-overlay">
+
+                        <div class="glass-caption">
+                            <h2>Always Together</h2>
+                            <p>
+                                Terima kasih sudah menjadi bagian terindah dari hidupku.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="slide">
+
+                    <img src="assets/foto5.jpg" alt="Foto 5">
+
+                    <div class="slide-overlay">
+                        <div class="glass-caption">
+                            <h2>Forever</h2>
+                            <p>
+                                Dan semoga kisah ini tidak pernah menemukan akhirnya.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CONTROLS -->
+            <div class="slider-controls">
+
+                <div class="progress-wrapper">
+
+                    <div class="progress-bar">
+                        <div id="progressFill"></div>
+                    </div>
+
+                </div>
+
+                <button id="nextBtn">
+                    Next ❤️
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- FINAL SECTION -->
+        <section id="finalSection">
+
+            <canvas id="heartCanvas"></canvas>
+
+            <div class="love-message">
+
+                <h1>
+                    I Love You Alya ❤️
+                </h1>
+
+                <p>
+                    Forever & Always
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
